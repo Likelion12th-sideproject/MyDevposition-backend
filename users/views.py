@@ -15,11 +15,11 @@ class UserModelViewSet(ModelViewSet):
 
 @api_view(['POST'])
 def post_grade(request, user_id):
-    if request.method == 'GET':
-        return HttpResponse(status=200)
     if request.method == 'POST':
-        serializer = UserGradeSerializer(data = request.data, many=True)
+        serializer = UserGradeSerializer(data = request.data)
         if(serializer.is_valid()):
             serializer.save()
-            return Response(serializer.data ,status=200)
+            return Response(serializer.data , status=status.HTTP_201_CREATED)
         return Response(serializer.errors ,status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'GET':
+        return HttpResponse(status=status.HTTP_200_OK)
