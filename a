@@ -1,0 +1,80 @@
+[33mcommit 445e95af39faa912edad877c96d0b3e6402b8dff[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: naye0n0 <wendy3302@naver.com>
+Date:   Mon Feb 12 00:00:27 2024 +0900
+
+    upload
+
+[33mcommit bce18d1bc711bfba4a38ba62a1c4b6dcc0f356d1[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: naye0n0 <wendy3302@naver.com>
+Date:   Sun Feb 11 22:53:51 2024 +0900
+
+    수정
+
+[33mcommit 62303b11d9160d26bb1b6925fa92398bdfcf2038[m
+Merge: 8f15493 80f0302
+Author: naye0n0 <90139787+naye0n0@users.noreply.github.com>
+Date:   Sun Feb 11 22:36:06 2024 +0900
+
+    Merge pull request #3 from Likelion12th-sideproject/master
+    
+    +result
+
+[33mcommit 80f03028d894b463b7c33350bdfde3b69b83f20b[m
+Author: naye0n0 <wendy3302@naver.com>
+Date:   Sun Feb 11 22:35:25 2024 +0900
+
+    +result
+
+[33mcommit 8f15493b8706bc577c25020990a3194268b4d73b[m
+Merge: eba5c9c 74dc8d6
+Author: 정재웅 <112147526+jjweidon@users.noreply.github.com>
+Date:   Sun Feb 11 22:18:45 2024 +0900
+
+    Merge pull request #2 from jjweidon/main
+    
+    [REFACTOR] localhost env에 추가
+
+[33mcommit 74dc8d60c8d5758296adb9a2d8ea638d0bc526bc[m
+Author: 정재웅 <jweidon0821@gmail.com>
+Date:   Sun Feb 11 22:17:17 2024 +0900
+
+    [REFACTOR] localhost env에 추가
+
+[33mcommit eba5c9cbe65ac01e26553264975fd4c6a674ba1b[m
+Merge: 457916e 9aabd3d
+Author: 정재웅 <112147526+jjweidon@users.noreply.github.com>
+Date:   Sun Feb 11 22:00:57 2024 +0900
+
+    Merge pull request #1 from jjweidon/main
+    
+    [MERGE] post grade 기능 완성
+
+[33mcommit 9aabd3d04a11ca340a1e092a61b12849480ceb41[m
+Author: 정재웅 <jweidon0821@gmail.com>
+Date:   Sun Feb 11 21:46:42 2024 +0900
+
+    [FEAT] post_grade 기능 완성
+
+[33mcommit ba965b3ae0ea5e05a3fc82a69a803c611efe43e1[m
+Author: 정재웅 <jweidon0821@gmail.com>
+Date:   Fri Feb 9 21:53:37 2024 +0900
+
+    [REFACTOR] post_grade와 .env 리팩토링
+
+[33mcommit ef47c7a053e351810151558c8bc239a0f19ca593[m
+Author: 정재웅 <jweidon0821@gmail.com>
+Date:   Fri Feb 9 21:32:24 2024 +0900
+
+    [FEAT] post_grade view 구성
+
+[33mcommit 5646d5892528b1160f579ce0209bc17faa819b96[m
+Author: 정재웅 <jweidon0821@gmail.com>
+Date:   Fri Feb 9 20:03:02 2024 +0900
+
+    [FEAT] users의 models.py, serializers.py 구성
+
+[33mcommit 457916e34c1363adf04aaa8437b53a3ce742417f[m
+Author: 정재웅 <jweidon0821@gmail.com>
+Date:   Tue Feb 6 20:23:45 2024 +0900
+
+    [REFACTOR] 레포 초기 구조 수정
