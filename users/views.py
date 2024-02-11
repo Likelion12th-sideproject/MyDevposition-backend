@@ -14,7 +14,7 @@ class UserModelViewSet(ModelViewSet):
     serializer_class = UserGradeSerializer
 
 @api_view(['POST'])
-def post_grade(request, user_id):
+def post_grade(request):
     if request.method == 'POST':
         serializer = UserGradeSerializer(data = request.data)
         if(serializer.is_valid()):

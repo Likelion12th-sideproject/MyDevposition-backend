@@ -10,5 +10,5 @@ router.register('users', UserModelViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/users/{int:user_id}/grade', post_grade),
+    path('users/grade', post_grade),
 ]
