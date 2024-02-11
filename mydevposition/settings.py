@@ -89,8 +89,8 @@ DATABASES = {
         'NAME': 'mydevposition', 
         'USER': 'root', 
         'PASSWORD': env('sqlpassword'), 
-        'HOST': 'localhost', 
-        'PORT': '3306', 
+        'HOST': env('localhost'), 
+        'PORT': '3306',
     }
 }
 
