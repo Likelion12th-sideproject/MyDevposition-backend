@@ -11,5 +11,5 @@ router.register('users', UserModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/grade', post_grade),
-    path('result/', include('result.urls')),
+    path('users/', include('result.urls')),
 ]
