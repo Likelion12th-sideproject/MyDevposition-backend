@@ -39,7 +39,7 @@ DEBUG = debug
 
 ALLOWED_HOSTS = [
     '(pythonanywhere ID).pythonanywhere.com',
-    '127.0.0.1',
+    '*',
 ]
 
 
@@ -55,9 +55,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
     'result',
+    'corsheaders', # CORS
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # CORS
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -147,6 +149,29 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# CORS 설정
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000'
+,'http://localhost:3000',]#(포트 지정)
+CORS_ALLOW_ALL_ORIGINS = True #(모든 포트 허용)
+#HTTP methods 추가
+CORS_ALLOW_METHODS = (
+"DELETE",
+"GET",
+"OPTIONS",
+"PATCH",
+"POST",
+"PUT",
+)
+#원하는 헤더 추가
+CORS_ALLOW_HEADERS = (
+"accept",
+"authorization",
+"content-type",
+"user-agent",
+"x-csrftoken",
+"x-requested-with",
+)
 
 # 디버깅 로그
 LOG_FILE = '/home/ubuntu/mydevposition/log/django.log'
