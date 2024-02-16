@@ -14,11 +14,15 @@ import os
 import environ
 from pathlib import Path
 
+### Production Settings ###
+debug = False
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, debug)
 )
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -31,10 +35,11 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = debug
 
 ALLOWED_HOSTS = [
-    '(pythonanywhere ID).pythonanywhere.com'
+    '(pythonanywhere ID).pythonanywhere.com',
+    '127.0.0.1',
 ]
 
 
@@ -120,11 +125,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'ko-kr'
+
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
+
+USE_L10N = True
 
 USE_TZ = True
 
@@ -138,3 +146,87 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# 디버깅 로그
+LOG_FILE = '/home/ubuntu/mydevposition/log/django.log'
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': LOG_FILE,
+            'when': "midnight",  # 매 자정마다
+            'backupCount': 31,
+            'formatter': 'standard',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard'
+        },
+    },
+    # Loggers (where does the log come from)
+    'loggers': {
+        'repackager': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django': {
+            'handlers': ['console', 'logfile'],
+            'propagate': True,
+            'level': 'WARN',
+        },
+        'django.server': {
+            'handlers': ['console', 'logfile'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'django.db.backends': {
+            'handlers': ['console', 'logfile'],
+            'level': 'WARN',
+            'propagate': False,
+        },
+        '': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+        },
+        'raven': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'sentry.errors': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'gunicorn.error': {
+            'level': 'INFO',
+            'handlers': ['logfile'],
+            'propagate': True,
+        },
+        'gunicorn.access': {
+            'level': 'INFO',
+            'handlers': ['logfile'],
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['logfile'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    }
+}
